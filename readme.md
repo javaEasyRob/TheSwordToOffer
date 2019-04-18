@@ -1,4 +1,4 @@
-# The sword refers to offer
+# The sword refers to offer （using Java）
 
 ## 1-10
 

@@ -19,7 +19,7 @@ public class MinNumberInRotateArray06 {
         if (len == 0) {
             return 0;
         }
-        //当旋转数组旋转0个元素时，直接返回第一个元素，因此将mid设置为0
+        //当旋转数组旋转0个元素时（array[low]<array[high），直接返回第一个元素，因此将mid设置为0
         //旋转过后依然是两个非递减数组，以最小元素为分界线
         int low = 0, mid = 0, high = len - 1;
         while (array[low] >= array[high]) {
@@ -27,8 +27,9 @@ public class MinNumberInRotateArray06 {
                 mid = high;
                 break;
             }
-            //负奇数>>1和/2不一样
+            //防止low+high溢出
             mid = low + (high - low) / 2;
+            //无法再分
             if (array[low] == array[mid] && array[mid] == array[high]) {
                 return findMin(array, low, high);
             }
